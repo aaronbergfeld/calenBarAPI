@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from rest_framework import routers
+from API.calenBar.views import CalendarViewSet
+
+router = routers.DefaultRouter()
+router.register(r'calendars', CalendarViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+
+urlpatterns += router.urls
