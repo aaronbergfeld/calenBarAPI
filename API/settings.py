@@ -51,6 +51,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'API.urls'
@@ -126,26 +128,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# INSTALLED_APPS = [
-# 'django.contrib.admin',
-# 'django.contrib.auth',
-# 'django.contrib.contenttypes',
-# 'django.contrib.sessions',
-# 'django.contrib.messages',
-# 'django.contrib.staticfiles',
-# 'corsheaders',
-# 'rest_framework',
-# 'API.calenBar'
 
-# ]
-
-# MIDDLEWARE = [
-#      'django.contrib.auth.middleware.AuthenticationMiddleware',
-#       'django.contrib.messages.middleware.MessageMiddleware',
-#       'django.contrib.sessions.middleware.SessionMiddleware',
-# 'corsheaders.middleware.CorsMiddleware',
-# 'django.middleware.common.CommonMiddleware'
-# ]
 
 CORS_ALLOWED_ORIGINS = [
 "https://domain.com",
