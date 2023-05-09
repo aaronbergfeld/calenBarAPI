@@ -16,14 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from rest_framework import routers
-from API.calenBar.views import CalendarViewSet
+from API.calenBar.views import CalendarViewSet, UserViewSet
+from rest_framework.authtoken import views
 
 router = routers.DefaultRouter()
 router.register(r'calendars', CalendarViewSet)
+router.register(r'users', UserViewSet)
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api-token-auth/', views.obtain_auth_token)
 ]
 
 urlpatterns += router.urls
