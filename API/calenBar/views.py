@@ -46,6 +46,17 @@ class CalendarViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         user = self.request.user
         return Calendar.objects.filter(user=user)
+
+    def create(self, request):
+        user = self.request.user
+        request.data['user'] = user.id
+        request.data['tasks'] = []
+        print(request.data)
+        calendar_serializer = CalendarSerializer(data=request.data)
+        if calendar_serializer.is_valid():
+            calendar_serializer.save()
+            return Response(calendar_serializer.data, status=status.HTTP_201_CREATED)
+        return Response(calendar_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
