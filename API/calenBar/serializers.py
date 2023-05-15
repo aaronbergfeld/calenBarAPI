@@ -4,7 +4,7 @@ from .models import *
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = ['id', 'title', 'priority', 'start_date', 'end_date', 'color', 'description', 'estimated_time', 'completed']
+        fields = ['id', 'title', 'start_date', 'end_date', 'goal_end_date', 'color', 'description', 'estimated_time', 'is_event', 'event_duration', 'completed']
         
 class CalendarSerializer(serializers.ModelSerializer):
     tasks = TaskSerializer(many=True, read_only=True)
