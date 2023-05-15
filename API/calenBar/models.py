@@ -29,7 +29,6 @@ class Calendar(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     description = models.TextField()
-    color_theme = models.CharField(max_length=100)
     tasks = models.ManyToManyField(Task)
 
     def __str__(self):
